@@ -4,7 +4,7 @@
 # Author: kenzo
 #=================================================
 
-name: nanopi-r5s
+name: nanopi-r6s
 
 on:
   repository_dispatch:
@@ -37,7 +37,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [nanopi-r5s]    
+        target: [nanopi-r6s]    
     
     steps:
     - name: Checkout
@@ -211,11 +211,11 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo -e "å¢™å†…å¤–åŠ é€Ÿä¸‹è½½ ðŸŽˆ:\n" >> release.txt
+        echo -e "Ç½ÄÚÍâ¼ÓËÙÏÂÔØ ??:\n" >> release.txt
         echo -e "[kenzo] (https://${{ secrets.REMOTE_HOST }}/op/firmware/${{matrix.target}})\n" >> release.txt
         touch release.txt
-        [ $UPLOAD_COWTRANSFER = true ] && echo "ðŸ”— [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
-        [ $UPLOAD_WETRANSFER = true ] && echo "ðŸ”— [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
+        [ $UPLOAD_COWTRANSFER = true ] && echo "?? [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
+        [ $UPLOAD_WETRANSFER = true ] && echo "?? [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to release
